@@ -40,38 +40,38 @@ const StudentDashboard = ()=> {
       <div className="dashboard">
       <Sidebar />
       <div className="main-content">
-        <header className="topbar">
-          <div className="welcome">
+        <header className="topbar-student">
+          <div className="welcome-student">
             <h1>Welcome, {userData.name}!</h1>
             <p>Let’s make today productive.</p>
           </div>
         
         </header>
-        <section className="widgets">
-          <div className="widget">
+        <section className="widgets-student">
+          <div className="widget-student">
             <i className="widget-icon fas fa-users"></i>
             <div>
               <h3>Enrolled Courses</h3>
               <p>5</p>
             </div>
           </div>
-          <div className="widget">
+          <div className="widget-student">
             <i className="widget-icon fas fa-calendar-alt"></i>
             <div>
               <h3>Upcoming Classes</h3>
               <p>3</p>
             </div>
           </div>
-          <div className="widget">
-            <i className="widget-icon fas fa-envelope"></i>
+          <div className="widget-student">
+            <i className="widget-icon-student fas fa-envelope"></i>
             <div>
               <h3>New Messages</h3>
               <p>2</p>
             </div>
           </div>
         </section>
-        <section className="content">
-          <div className="content-card">
+        <section className="content-student">
+          <div className="content-card-student">
             <h3>
               <i className="fas fa-chalkboard-teacher"></i> Upcoming Classes
             </h3>
@@ -81,7 +81,7 @@ const StudentDashboard = ()=> {
               <li>English - 2:00 PM</li>
             </ul>
           </div>
-          <div className="content-card">
+          <div className="content-card-student">
             <h3>
               <i className="fas fa-comments"></i> Recent Messages
             </h3>

@@ -3,8 +3,13 @@ import '../index.css';
 import Sidebar from '../components/Sidebar'; 
 
 const Contact = () => {
+
+  const isLoggedIn = localStorage.getItem('token'); // Check if user is logged in or not
+
+
   return (
-    <Sidebar>
+<div className={`home ${isLoggedIn ? 'with-sidebar' : ''}`}>
+      {isLoggedIn && <Sidebar />} {/* Render Sidebar only if logged in */}
     <div className="contact-page">
           {/* Now this us where you will out your html code */}
       <h1>Contact Us</h1>
@@ -15,7 +20,7 @@ const Contact = () => {
         <li>Address: 123 CleverCampus Lane, Learning City, Education State</li>
       </ul>
     </div>
-    </Sidebar>
+   </div>
   );
 };
 

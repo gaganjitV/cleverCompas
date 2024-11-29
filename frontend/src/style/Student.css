@@ -1,9 +1,5 @@
 
-.dashboard {
-    display: flex;
-    min-height: 100vh;
-    background-color: #f9f9f9;
-  }
+
   
   /* Main Content */
   .main-content {
@@ -13,7 +9,7 @@
   }
   
   /* Topbar Styling */
-  .topbar {
+  .topbar-student {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,13 +18,12 @@
     color: #ffffff;
     border-radius: 5px;
   }
-  
-  .welcome h1 {
+  .welcome-student h1 {
     margin: 0;
     font-size: 1.8em;
   }
   
-  .welcome p {
+  .welcome-student p {
     margin: 5px 0 0;
     font-size: 1em;
     color: #bdc3c7;
@@ -42,13 +37,13 @@
   }
   
   /* Widgets Section */
-  .widgets {
+  .widgets-student {
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
   }
   
-  .widget {
+  .widget-student {
     flex: 1;
     background-color: #34495e;
     color: #ffffff;
@@ -62,37 +57,37 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .widget-icon {
+  .widget-icon-student {
     font-size: 2.5em;
     color: #e67e22;
   }
   
-  .widget h3 {
+  .widget-student h3 {
     margin: 0;
     font-size: 1.2em;
         color: #e67e22;
 
   }
   
-  .widget p {
+  .widget-student p {
     margin: 5px 0 0;
     font-size: 1.5em;
     font-weight: bold;
   }
   
-  .widget:hover {
+  .widget-student:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
   }
   
   /* Content Section */
-  .content {
+  .content-student {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
   }
   
-  .content-card {
+  .content-card-student {
     flex: 1;
     min-width: 300px;
     background-color: #ffffff;
@@ -102,7 +97,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .content-card h3 {
+  .content-card-student h3 {
     margin: 0 0 15px;
     font-size: 1.5em;
     color: #34495e;
@@ -111,18 +106,18 @@
     gap: 10px;
   }
   
-  .content-card p {
+  .content-card-student p {
     font-size: 1em;
     color: #555555;
   }
   
-  .content-card ul {
+  .content-card-student ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
   
-  .content-card ul li {
+  .content-card-student ul li {
     margin: 10px 0;
     padding: 10px;
     background-color: #f9f9f9;
@@ -130,7 +125,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .content-card:hover {
+  .content-card-student:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
   }

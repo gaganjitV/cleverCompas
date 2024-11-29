@@ -3,9 +3,16 @@ import '../index.css';
 import Sidebar from '../components/Sidebar'; 
 
 const About = () => {
+
+  const isLoggedIn = localStorage.getItem('token'); // Check if user is logged in or not
+
+
+
+
   return (
-    
-    <Sidebar>
+    <div className={`home ${isLoggedIn ? 'with-sidebar' : ''}`}>
+      {isLoggedIn && <Sidebar />} {/* Render Sidebar only if logged in */}
+
     <div className="about-page">
   
           {/* Now this us where you will put your html code */}
@@ -18,8 +25,8 @@ const About = () => {
         Our mission is to empower learners and educators with tools that foster success in an ever-changing world.
       </p>
     </div>
-  </Sidebar>
-  );
+    </div>
+  ); 
 };
 
 export default About;

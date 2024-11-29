@@ -3,9 +3,15 @@ import '../index.css';
 import Sidebar from '../components/Sidebar'; 
 
 const FAQ = () => {
+
+
+  const isLoggedIn = localStorage.getItem('token'); // Check if user is logged in or not
   return (
 
-    <Sidebar>
+    
+
+    <div className={`home ${isLoggedIn ? 'with-sidebar' : ''}`}>
+      {isLoggedIn && <Sidebar />} {/* Render Sidebar only if logged in */}
     <div className="faq-page">
           {/* Now this us where you will out your html code */}
       <h1>Frequently Asked Questions</h1>
@@ -28,7 +34,7 @@ const FAQ = () => {
         </p>
       </div>
     </div>
-    </Sidebar>
+    </div>
   );
 };
 
