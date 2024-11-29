@@ -53,7 +53,7 @@ const Sidebar = ({ children }) => {
     if (role === 'tutor') {
       navigate('/TutordashBoard');
     } else if (role === 'student') {
-      navigate('studentDashboard');
+      navigate('/studentDashboard');
     } else {
       console.error('Unknown role:', role);
     }
