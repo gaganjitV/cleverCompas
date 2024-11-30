@@ -23,8 +23,8 @@ const Home = () => {
       <div className="home-main-content">
         <header className="hero">
           <div className="hero-content">
-            <h1>Welcome to CleverCampus</h1>
-            <p>Empower your learning journey with modern tools and resources. Empower your learning journey with modern tools and resources. </p>
+            <h1>Welcome to Clever Compass</h1>
+            <p>Empower your learning journey with modern tools and resources.</p>
             {!isLoggedIn && <Link to="/login" className="cta-button">Get Started</Link>} {/* Render the get started bytton only if logged in */}
           </div>
         </header>
