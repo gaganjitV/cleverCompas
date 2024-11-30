@@ -16,7 +16,7 @@ const FAQ = () => {
           {/* Now this us where you will out your html code */}
       <h1>Frequently Asked Questions</h1>
       <div className="faq-item">
-        <h3>What is CleverCampus?</h3>
+        <h3>What is Clever Compass?</h3>
         <p>
           Clever Compass is a platform designed to help students, teachers, and professionals organize their academic and professional lives.
         </p>
