@@ -18,7 +18,7 @@ const FAQ = () => {
       <div className="faq-item">
         <h3>What is CleverCampus?</h3>
         <p>
-          CleverCampus is a platform designed to help students, teachers, and professionals organize their academic and professional lives.
+          Clever Compass is a platform designed to help students, teachers, and professionals organize their academic and professional lives.
         </p>
       </div>
       <div className="faq-item">
@@ -28,9 +28,9 @@ const FAQ = () => {
         </p>
       </div>
       <div className="faq-item">
-        <h3>Is CleverCampus free?</h3>
+        <h3>Is Clever Compass free?</h3>
         <p>
-          CleverCampus offers both free and premium plans. Check out our pricing page for more details.
+          Clever Compass offers both free and premium plans. Check out our pricing page for more details!
         </p>
       </div>
     </div>

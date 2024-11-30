@@ -86,7 +86,7 @@ const StudentDashboard = ()=> {
               <i className="fas fa-comments"></i> Recent Messages
             </h3>
             <p>
-              <strong>{userData.name}: </strong> Hi Tutor, I need help with algebra!
+              <strong>{userData.name}: </strong> Hi Student, I need help with algebra!
             </p>
             <p>
               <strong>{userData.name}: </strong> Can we schedule an extra session?
