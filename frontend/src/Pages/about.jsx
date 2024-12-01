@@ -10,6 +10,8 @@ const About = () => {
 
 
   return (
+
+    
     <div className={`home ${isLoggedIn ? 'with-sidebar' : ''}`}>
       {isLoggedIn && <Sidebar />} {/* Render Sidebar only if logged in */}
 

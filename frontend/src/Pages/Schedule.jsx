@@ -1,6 +1,7 @@
 // Calendar.jsx
 import React, { useState } from "react";
 import "../style/schedule.css";
+import Sidebar from '../components/Sidebar'; 
 
 const Calendar = () => {
   const [date, setDate] = useState(new Date());
@@ -112,7 +113,10 @@ const Calendar = () => {
   ];
 
   return (
-    <div className="container">
+ 
+
+
+    <Sidebar>
       <div className="calendar">
         <div className="month">
           <i className="fas fa-angle-left prev" onClick={handlePrev}></i>
@@ -133,7 +137,9 @@ const Calendar = () => {
         </div>
         <div className="days">{renderCalendar()}</div>
       </div>
-    </div>
+      </Sidebar>
+
+
   );
 };
 
