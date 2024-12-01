@@ -1,115 +1,95 @@
-import React from 'react';
-//import Sidebar from '../components/Sidebar';
-import '../style/schedule.css';
+import React, { useState } from "react";
+import '../style/schedule.css'
+
 const Calendar = () => {
-  return (
-    <div>
-      <h2 style={{ textAlign: 'center', color: 'orange' }}>
-        January 2024
-      </h2>
-      <br />
-      <table
-        style={{
-          backgroundColor: 'lightgrey',
-          margin: '0 auto',
-          borderSpacing: '21px',
-          borderCollapse: 'separate',
-        }}
-      >
-        <caption style={{ textAlign: 'top' }}>
-          {/* Add a caption or remove this tag if unused */
-          
+  const [date, setDate] = useState(new Date());
+  const appointments = {
+    "2024-11-30": "Math Tutor at 2 PM",
+    "2024-12-10": "Physics Tutor at 4 PM",
+    "2024-12-15": "Chemistry Tutor at 1 PM",
+  };
+
+  const renderDays = () => {
+    const firstDayIndex = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+    const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+    const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
+    const nextDays = 7 - lastDayIndex - 1;
+
+    const days = [];
+
+    // Add previous month days
+    for (let x = firstDayIndex; x > 0; x--) {
+      days.push(
+        <div key={`prev-${x}`} className="prev-date">
+          {prevLastDay - x + 1}
+        </div>
+      );
+    }
+
+    // Add current month days
+    for (let i = 1; i <= lastDay; i++) {
+      const currentDate = new Date(date.getFullYear(), date.getMonth(), i);
+      const formattedDate = currentDate.toISOString().split("T")[0];
+
+      days.push(
+        <div
+          key={`current-${i}`}
+          className={
+            i === new Date().getDate() &&
+            date.getMonth() === new Date().getMonth()
+              ? "today"
+              : appointments[formattedDate]
+              ? "appointment"
+              : ""
           }
-        </caption>
-        <thead>
-          <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-          </tr>
-          <tr>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-            <td>15</td>
-            <td>16</td>
-          </tr>
-          <tr>
-            <td>17</td>
-            <td>18</td>
-            <td>19</td>
-            <td>20</td>
-            <td>21</td>
-            <td>22</td>
-            <td>23</td>
-          </tr>
-          <tr>
-            <td>24</td>
-            <td>25</td>
-            <td>26</td>
-            <td>27</td>
-            <td>28</td>
-            <td>29</td>
-            <td>30</td>
-          </tr>
-          <tr>
-            <td>31</td>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-          </tr>
-        </tbody>
-      </table>
+          title={appointments[formattedDate] || ""}
+        >
+          {i}
+        </div>
+      );
+    }
+
+    // Add next month days
+    for (let j = 1; j <= nextDays; j++) {
+      days.push(
+        <div key={`next-${j}`} className="next-date">
+          {j}
+        </div>
+      );
+    }
+
+    return days;
+  };
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  return (
+    <div className="calendar">
+      <div className="date">
+        <h1>{months[date.getMonth()]}</h1>
+        <p>{new Date().toDateString()}</p>
+      </div>
+      <div className="navigation">
+        <button onClick={() => setDate(new Date(date.setMonth(date.getMonth() - 1)))}>Prev</button>
+        <button onClick={() => setDate(new Date(date.setMonth(date.getMonth() + 1)))}>Next</button>
+      </div>
+      <div className="days">{renderDays()}</div>
     </div>
   );
 };
 
 export default Calendar;
-
-/*
-const Schedule = () => {
-  return (
-    <div className="schedule-page">
-    <Sidebar className="sidebar">
-      { /* Sidebar contents  }
-    </Sidebar>
-    <div className= "main-content">
-      {/* Now this us where you will out your html code }
-      <h1>Schedule</h1>
-      <p>Manage your scheduling needs effectively.</p>
-    </div>
-  </div>
-  )
-}
-
-export default Schedule;
-*/
