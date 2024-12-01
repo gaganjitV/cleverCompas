@@ -1,36 +1,100 @@
-import React from 'react';
-import { useState, useEffect } from 'react'; // for using the state to make the sidebar toggle and for usefect which helps side bar go away evrytime we new page is loaded
-import { Link , useLocation} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Sidebar.css';
 
 const Sidebar = ({ children }) => {
-    const [isCollapsed, setIsCollapsed] = useState(false);
-    const location = useLocation();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [role, setRole] = useState(null); // State to store the user's role
 
-    // Automatically collapse the sidebar when the location changes
-    useEffect(() => {
+  // Automatically collapse the sidebar when the location changes
+  useEffect(() => {
     setIsCollapsed(true);
   }, [location]);
 
-    const toggleSidebar = () => {
-      setIsCollapsed(!isCollapsed);
+
+  // Fetch role
+  useEffect(() => {
+    const fetchUserRole = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          navigate('/login'); // Redirect to login if no token is found
+          return;
+        }
+
+        const response = await fetch('http://localhost:4000/api/user', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+
+        const data = await response.json();
+        setRole(data.role); // Set the user's role (student/tutor)
+      } catch (error) {
+        console.error('Error fetching user role:', error);
+        navigate('/login'); // Redirect to login on error
+      }
     };
-  
-    return (
-      <div className={`layout-container ${isCollapsed ? 'collapsed' : ''}`}>
-        <aside className="sidebar">
-          <button className="toggle-button" onClick={toggleSidebar}>
-            {isCollapsed ? '>' : '<'}
-          </button>
-          <ul className="sidebar-links">
-            <li><Link to="/dashboard">Dashboard</Link></li>
-            <li><Link to="/schedule">Schedule</Link></li>
-            <li><Link to="/example">Example</Link></li>
-          </ul>
-        </aside>
-        <main className="content">{children}</main>
-      </div>
-    );
+
+    fetchUserRole();
+  }, [navigate]); 
+
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
   };
-  
-  export default Sidebar;
+
+
+  //  Dashboard redirection based on role
+  const handleDashboardClick = () => {
+    if (role === 'tutor') {
+      navigate('/TutordashBoard');
+    } else if (role === 'student') {
+      navigate('/studentDashboard');
+    } else {
+      console.error('Unknown role:', role);
+    }
+  };
+
+  // This is for the logout button functions
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove the token
+    navigate('/login'); // Redirect to login page
+  };
+
+  return (
+    <div className="layout-container">
+      <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+        <button className="toggle-button" onClick={toggleSidebar}>
+          {isCollapsed ? '>' : '<'}
+        </button>
+        {!isCollapsed && (
+          <>
+          <ul className="sidebar-links">
+            
+
+            <li>
+                <button onClick={handleDashboardClick} className="dashboard-link">
+                  Dashboard
+                </button>
+              </li>
+
+
+            <li><Link to="/schedule">Schedule</Link></li>
+            <li><Link to="/Notification">Notification</Link></li> {/* Need to add pages */}
+          </ul>
+          <button className="logout-button" onClick={handleLogout}>
+              Logout
+            </button>
+          </>
+        )}
+      </aside>
+      <main className={`content ${isCollapsed ? 'expanded' : ''}`}>{children}</main>
+    </div>
+  );
+};
+
+export default Sidebar;

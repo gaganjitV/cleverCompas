@@ -3,7 +3,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 //Pages and components 
 import Login from './Pages/login';
 import Home from './Pages/home'
-import Dashboard from './Pages/dashBoard'
+import StudentDashboard from './Pages/studentDashboard';
+import TutorDashboard from './Pages/TutordashBoard';
 import Schedule from './Pages/Schedule'
 import About from './Pages/about';
 import Contact from './Pages/contact';
@@ -37,7 +38,8 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/faq" element={<FAQ />} />
                {/* Protected Routes */}
-             <Route path="/dashboard" element={<ProtectedRoute> <Dashboard /> </ProtectedRoute> }/>
+             <Route path="/studentDashboard" element={<ProtectedRoute> <StudentDashboard /> </ProtectedRoute> }/>
+             <Route path="/Tutordashboard" element={<ProtectedRoute> <TutorDashboard /> </ProtectedRoute> }/>
              <Route path="/Schedule" element={<ProtectedRoute> <Schedule /> </ProtectedRoute> }/>
 
 

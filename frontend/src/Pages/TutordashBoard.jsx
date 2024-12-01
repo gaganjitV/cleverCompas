@@ -1,9 +1,41 @@
-
-import '../style/dashboard.css'
+import React, { useState, useEffect } from 'react';
+import '../style/TutorDashboard.css'
 import Sidebar from '../components/Sidebar'; 
 
 
-const dashboard = ()=> {
+const Dashboard = ()=> {
+
+  const [userData, setUserData] = useState(null);
+
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const token = localStorage.getItem('token'); // Get the JWT token for the user that is logged in
+        const response = await fetch('http://localhost:4000/api/user', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+
+        const data = await response.json();
+        console.log('User data received:', data);
+
+        setUserData(data);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  if (!userData) {
+    return <p>Loading...</p>;
+  }
+
     return (
         <div class="dashboard">
       <Sidebar></Sidebar>
@@ -11,7 +43,8 @@ const dashboard = ()=> {
       <header class="topbar">
         <div class="welcome">Welcome, Tutor!</div>
         <div class="profile">
-          <span>John Doe</span>
+          {/* getting the name of the user logged inn */}
+          <span>{userData.name}</span>
         </div>
       </header>
       <section class="widgets">
@@ -51,4 +84,4 @@ const dashboard = ()=> {
 
 }
 
-export default dashboard;
+export default Dashboard;

@@ -8,16 +8,16 @@ const Footer = () => {
       <div className="footer-container">
         {/* Footer Logo and Copyright */}
         <div className="footer-section footer-logo">
-          <Link to="/">CleverCampus</Link>
+          <Link to="/">Clever Compass</Link>
           <div className="footer-copyright">
-            &copy; {new Date().getFullYear()} CleverCampus. All rights reserved.
+            &copy; {new Date().getFullYear()} Clever Compass. All rights reserved.
           </div>
         </div>
 
         {/* Need Support Section */}
         <div className="footer-section footer-support">
           <h3>Need Support?</h3>
-          <p>Email: <a href="mailto:support@clevercampus.com">support@clevercampus.com</a></p>
+          <p>Email: <a href="mailto:support@clevercompass.com">support@clevercompass.com</a></p>
           <p>Phone: +1 (800) 123-4567</p>
         </div>
 

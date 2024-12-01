@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 require('dotenv').config(); // To load environment variables
 
 // Importing Routes
-const authRoutes = require('./routes/auth');
-const profileRoutes = require('./routes/profile');
+const authRoutes = require('./routes/auth'); // Signup and Login routes
+const userRoutes = require('./routes/user');  // User data retrieval routes
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(cors()); // Enable CORS for all requests
 app.use(bodyParser.json()); // Parse JSON request bodies
 
 // Database Connection
-const DB_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/mean-app';
+const DB_URI = process.env.MONGO_URI;
 mongoose
     .connect(DB_URI)
     .then(() => console.log('Connected to MongoDB'))
@@ -23,7 +23,7 @@ mongoose
 
 // Routes
 app.use('/api', authRoutes); // Authentication routes
-app.use('/api', profileRoutes); //protected routes as we make more routs we add it here
+app.use('/api', userRoutes); //protected routes as we make more routs we add it here
 
 // Root Route
 app.get('/', (req, res) => {
@@ -36,8 +36,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Internal Server Error' });
 });
 
-// Start Server
-const PORT = process.env.PORT || 5000;
+// Start Server and also having a fallback port of 5000
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

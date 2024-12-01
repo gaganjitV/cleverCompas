@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-
 import '../style/login.css';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  
   const navigate = useNavigate(); // Initialize navigate
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+  const [message, setMessage] = useState('');
+
+
+
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,7 +28,7 @@ const Login = () => {
       const response = await fetch('http://localhost:4000/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(formData),
       });
   
       if (!response.ok) {
@@ -24,12 +36,25 @@ const Login = () => {
         throw new Error(error.message);
       }
   
-      const { token } = await response.json();
-      localStorage.setItem('token', token); // Save token in localStorage
-      alert('Login successful');
-      navigate('/dashboard'); // Redirect to protected route
+      const data = await response.json();
+      localStorage.setItem('token', data.token); // Save token in localStorage
+
+
+
+       // Redirect based on role
+       if (data.role === 'tutor') {
+        navigate('/TutordashBoard');
+        
+      } else if (data.role === 'student') {
+        navigate('/studentDashboard');
+        
+      } else {
+        
+        throw new Error('Invalid user');
+        
+      }
     } catch (error) {
-      alert('Login failed: ' + error.message);
+      setMessage(error.message);
     }
   };
   
@@ -38,25 +63,30 @@ const Login = () => {
     <div className="login-container">
       <form className="login-form" onSubmit={handleLogin}>
         <h1>Login</h1>
+        {message && <p className="login-message">{message}</p>}
+
+
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor ="email">Email</label>
           <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
+            type = "email"
+            id = "email"
+            name="email"
+            value = {formData.email}
+            onChange = {handleChange}
+            placeholder = "Enter your email"
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
           <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
+            type = "password"
+            id =" password"
+            name="password"
+            value = {formData.password}
+            onChange =  {handleChange}
+            placeholde = "Enter your password"
             required
           />
         </div>

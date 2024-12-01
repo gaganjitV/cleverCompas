@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: false,
-    trim: true,
+    trim: true, //triming white space
   },
   email: {
     type: String,
@@ -20,6 +20,8 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
   },
+  age: { type: Number, required: true },
+  role: { type: String, enum: ['student', 'tutor'], required: true },
 });
 
 // Hash password before saving the user

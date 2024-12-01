@@ -7,15 +7,19 @@ const JWT_SECRET = process.env.JWT_SECRET|| 'mysecretsshhhhh';
 
 // Register Route
 router.post('/register', async (req, res) => {
-  const { email, password } = req.body;
+  const {name, email, password, age, role } = req.body;
 
   try {
+    //checking if email is already in use
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'Email already in use' });
     }
 
-    const newUser = new User({ email, password });
+    //the password is being hashed in the models users I have a pre functions that does that before saving the user
+
+    //Creating new user
+    const newUser = new User({name, email, password, age, role });
     await newUser.save();
 
     res.status(201).json({ message: 'User registered successfully' });
@@ -34,20 +38,28 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
+      //This is where we are Verifying the passwords
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    // Generate JWT
-    const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, {
+    // Generate JWT ->>>>> get back to thisssss
+    const token = jwt.sign({ id: user._id, email: user.email, role: user.role }, JWT_SECRET, {
       expiresIn: '1h',
     });
 
-    res.json({ message: 'Login successful', token });
+
+
+    res.json({ message: 'Login successful', token, role: user.role });
   } catch (error) {
     res.status(500).json({ message: 'Server error', error });
   }
 });
+
+
+
+
+
 
 module.exports = router;

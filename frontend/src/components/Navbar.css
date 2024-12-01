@@ -57,6 +57,11 @@
 
 .navbar-links li .navbar-button:hover {
   background-color: #d35400; /* Darker orange on hover */
+  transform: scale(1.05);
+}
+
+.navbar-links li .navbar-button:active {
+  transform: scale(0.95); /* Slight press-in effect */
 }
 
 /* Align Links to the Left */
