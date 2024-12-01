@@ -12,7 +12,7 @@ const FAQ = () => {
   const faqData = [
     {
       question: "What is Clever Compass?",
-      answer: "CleverCampus is a platform designed to help students, teachers, and professionals organize their academic and professional lives.",
+      answer: "Clever Compass is a platform designed to help students, teachers, and professionals organize their academic and professional lives.",
     },
     {
       question: "How do I create an account?",
@@ -20,7 +20,7 @@ const FAQ = () => {
     },
     {
       question: "Is Clever Compass free?",
-      answer: "CleverCampus offers both free and premium plans. Check out our pricing page for more details.",
+      answer: "Clever Compass offers both free and premium plans. Check out our pricing page for more details.",
     },
     {
       question: "How do I reset my password?",
@@ -56,7 +56,7 @@ const FAQ = () => {
     },
     {
       question: "Are there resources for self-paced learning?",
-      answer: "Yes, CleverCampus provides access to various self-paced learning resources like videos, articles, and practice quizzes.",
+      answer: "Yes, Clever Compass provides access to various self-paced learning resources like videos, articles, and practice quizzes.",
     },
   ];
 
