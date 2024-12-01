@@ -11,16 +11,16 @@ const FAQ = () => {
 
   const faqData = [
     {
-      question: "What is CleverCampus?",
-      answer: "CleverCampus is a platform designed to help students, teachers, and professionals organize their academic and professional lives.",
+      question: "What is Clever Compass?",
+      answer: "Clever Compass is a platform designed to help students, teachers, and professionals organize their academic and professional lives.",
     },
     {
       question: "How do I create an account?",
       answer: "You can sign up on our Sign Up page with your email address and a secure password.",
     },
     {
-      question: "Is CleverCampus free?",
-      answer: "CleverCampus offers both free and premium plans. Check out our pricing page for more details.",
+      question: "Is Clever Compass free?",
+      answer: "Clever Compass offers both free and premium plans. Check out our pricing page for more details.",
     },
     {
       question: "How do I reset my password?",
