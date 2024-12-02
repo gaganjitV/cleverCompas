@@ -55,6 +55,7 @@ const io = new Server(server, {
   cors: {
     origin: allowedOrigins,/// frontend server
     methods: ['GET', 'POST'],
+    credentials: true, // Allow cookies and authentication headers  
   },
 });
 
