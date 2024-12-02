@@ -5,7 +5,10 @@ import Sidebar from '../components/Sidebar';
 import io from 'socket.io-client';
 
 // Connect to the backend Socket.IO server
-const socket = io('https://clevercompas.onrender.com');
+const socket = io('https://clevercompas.onrender.com', {
+  transports: ['websocket', 'polling'], // Ensure proper transports
+  withCredentials: true, // Allow credentials (e.g., cookies)
+});
 
 
 
