@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import '../style/chat.css';
 
 // Connect to the server
-const socket = io('http://localhost:4000'); 
+const socket = io('https://clevercompas.onrender.com'); 
 
 const Chat = () => {
   const [messages, setMessages] = useState([]); // Stores chat messages
