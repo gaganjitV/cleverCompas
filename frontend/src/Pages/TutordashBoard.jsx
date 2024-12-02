@@ -69,6 +69,13 @@ const Dashboard = ()=> {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent default form submission behavior
+      handleSendMessage(); // Trigger message send
+    }
+  };
+
   if (!userData) {
     return <p>Loading...</p>;
   }
@@ -131,6 +138,7 @@ const Dashboard = ()=> {
                 type="text"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                onKeyDown={handleKeyPress} // Listen for key press
                 placeholder="Type a message..."
               />
               <button onClick={handleSendMessage}>Send</button>
