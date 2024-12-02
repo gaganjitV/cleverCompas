@@ -20,7 +20,7 @@ const StudentDashboard = ()=> {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem('token'); // Get the JWT token for the user that is logged in
-        const response = await fetch('http://localhost:4000/api/user', {
+        const response = await fetch('https://clevercompas.onrender.com/api/user', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
