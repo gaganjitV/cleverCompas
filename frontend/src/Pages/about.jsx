@@ -1,6 +1,6 @@
 import React from 'react';
 import '../index.css';
-//import '../about.css';
+import '../style/about.css';
 import Sidebar from '../components/Sidebar'; 
 
 const About = () => {
