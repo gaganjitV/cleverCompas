@@ -19,6 +19,16 @@ const Contact = () => {
         <li>Phone: +1 (800) 123-4567</li>
         <li>Address: 123 Clever Compass Lane, Learning City, Education State</li>
       </ul>
+      <ul>
+        <li>Christobel Navarro-Miranda</li>
+        <li>Mohammah Sumair</li>
+        <li>Vatsal Maniyar</li>
+        <li>Faizan Tariq</li>
+        <li>Gaganjit Virdi</li>
+        <li>Ryan Smith</li>
+        <li>Jack Turner</li>
+        <li>Sila Can</li>
+      </ul>
     </div>
    </div>
   );
