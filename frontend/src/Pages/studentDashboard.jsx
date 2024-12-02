@@ -2,10 +2,18 @@ import React, { useState, useEffect } from 'react';
 import '../style/Student.css'
 import Sidebar from '../components/Sidebar'; 
 
+import io from 'socket.io-client';
+
+// Connect to the backend Socket.IO server
+const socket = io('http://localhost:4000');
+
+
 
 const StudentDashboard = ()=> {
 
   const [userData, setUserData] = useState(null);
+  const [messages, setMessages] = useState([]); // Chat messages
+  const [message, setMessage] = useState(''); // Current message input
 
 
   useEffect(() => {
@@ -32,6 +40,34 @@ const StudentDashboard = ()=> {
     fetchUserData();
   }, []);
 
+  //Listning for the user data
+  useEffect(() => {
+    // Listen for incoming messages
+    const handleReceiveMessage = (data) => {
+      setMessages((prevMessages) => [...prevMessages, data]);
+    };
+  
+    socket.on('receiveMessage', handleReceiveMessage);
+  
+    // Cleanup function to remove the listener when the component unmounts
+    return () => {
+      socket.off('receiveMessage', handleReceiveMessage);
+    };
+  }, []);
+
+  const handleSendMessage = () => {
+    if (message.trim()) {
+      const data = {
+        username: userData.name,
+        message,
+        timestamp: new Date().toLocaleTimeString(),
+      };
+  
+      socket.emit('sendMessage', data); // Emit the message to the server
+      setMessage(''); // Clear the input field
+    }
+  };
+
   if (!userData) {
     return <p>Loading...</p>;
   }
@@ -50,24 +86,24 @@ const StudentDashboard = ()=> {
         <section className="widgets-student">
           <div className="widget-student">
             <i className="widget-icon fas fa-users"></i>
-            <div>
+
               <h3>Enrolled Courses</h3>
               <p>5</p>
-            </div>
+
           </div>
           <div className="widget-student">
             <i className="widget-icon fas fa-calendar-alt"></i>
-            <div>
+            
               <h3>Upcoming Classes</h3>
               <p>3</p>
-            </div>
+           
           </div>
           <div className="widget-student">
             <i className="widget-icon-student fas fa-envelope"></i>
-            <div>
+            
               <h3>New Messages</h3>
               <p>2</p>
-            </div>
+           
           </div>
         </section>
         <section className="content-student">
@@ -93,6 +129,31 @@ const StudentDashboard = ()=> {
             </p>
           </div>
         </section>
+          {/* Chat Section */}
+          <section className="chat-student">
+          <h3>Live Chat</h3>
+          <div className="chat-box">
+            <div className="chat-messages">
+              {messages.map((msg, index) => (
+                <div key={index} className="chat-message">
+                  <strong>{msg.username}</strong>: {msg.message}{' '}
+                  <span className="chat-timestamp">{msg.timestamp}</span>
+                </div>
+              ))}
+            </div>
+            <div className="chat-input">
+              <input
+                type="text"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Type a message..."
+              />
+              <button onClick={handleSendMessage}>Send</button>
+            </div>
+          </div>
+        </section>
+
+
       </div>
     </div>
   );
