@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar';
 import io from 'socket.io-client';
 
 // Connect to the backend Socket.IO server
-const socket = io('http://localhost:4000');
+const socket = io('https://clevercompas.onrender.com');
 
 const Dashboard = ()=> {
 
