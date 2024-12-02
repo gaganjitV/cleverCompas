@@ -44,7 +44,8 @@ app.use((err, req, res, next) => {
 const allowedOrigins = [
   'http://localhost:3000', 
   'http://localhost:4000', 
-  'http://10.0.0.17:3000',   
+  'http://10.0.0.17:3000',
+    'https://clevercompas-frontend.onrender.com',
 ];
 
 // Create HTTP server for Socket.IO
