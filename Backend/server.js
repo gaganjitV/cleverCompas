@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const http = require('http');
+
+const { Server } = require('socket.io'); // Import the Server class from Socket.IO
 require('dotenv').config(); // To load environment variables
 
 // Importing Routes
@@ -36,8 +39,43 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Internal Server Error' });
 });
 
-// Start Server and also having a fallback port of 5000
+//alowing multple oring for cors for sicket io, this way I was able to chat between my home local internet and local
+
+const allowedOrigins = [
+  'http://localhost:3000', 
+  'http://localhost:4000', 
+  'http://10.0.0.17:3000',   
+];
+
+// Create HTTP server for Socket.IO
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: allowedOrigins,/// frontend server
+    methods: ['GET', 'POST'],
+  },
+});
+
+// Socket.IO logic for chat
+io.on('connection', (socket) => {
+  console.log(`User connected: ${socket.id}`);
+
+  // Listen for chat messages
+  socket.on('sendMessage', (data) => {
+    console.log('Message received:', data);
+    // Broadcast the message to all connected users
+    io.emit('receiveMessage', data);
+  });
+
+  // Handle disconnection
+  socket.on('disconnect', () => {
+    console.log(`User disconnected: ${socket.id}`);
+  });
+});
+
+
+// Start Server and also having a fallback port of 4000
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

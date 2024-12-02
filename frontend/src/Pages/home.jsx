@@ -36,7 +36,7 @@ const Home = () => {
               </div>
             ))
           ) : (
-            <p>Loading images...</p>
+            <p>Loading images... to many requests</p>
           )}
         </section>
       </div>

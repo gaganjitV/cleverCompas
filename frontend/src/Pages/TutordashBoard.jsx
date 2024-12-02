@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import '../style/TutorDashboard.css'
 import Sidebar from '../components/Sidebar'; 
+import io from 'socket.io-client';
 
+// Connect to the backend Socket.IO server
+const socket = io('http://localhost:4000');
 
 const Dashboard = ()=> {
 
   const [userData, setUserData] = useState(null);
+  const [messages, setMessages] = useState([]); // Chat messages
+  const [message, setMessage] = useState(''); // Current message input
+
 
 
   useEffect(() => {
@@ -32,6 +38,34 @@ const Dashboard = ()=> {
     fetchUserData();
   }, []);
 
+  // Listen for incoming messages
+  useEffect(() => {
+    // Listen for incoming messages
+    const handleReceiveMessage = (data) => {
+      setMessages((prevMessages) => [...prevMessages, data]);
+    };
+  
+    socket.on('receiveMessage', handleReceiveMessage);
+  
+    // Cleanup function to remove the listener when the component unmounts
+    return () => {
+      socket.off('receiveMessage', handleReceiveMessage);
+    };
+  }, []);
+
+  const handleSendMessage = () => {
+    if (message.trim()) {
+      const data = {
+        username: userData.name,
+        message,
+        timestamp: new Date().toLocaleTimeString(),
+      };
+  
+      socket.emit('sendMessage', data); // Emit the message to the server
+      setMessage(''); // Clear the input field
+    }
+  };
+
   if (!userData) {
     return <p>Loading...</p>;
   }
@@ -40,29 +74,29 @@ const Dashboard = ()=> {
         <div class="dashboard">
       <Sidebar></Sidebar>
     <div class="main-content">
-      <header class="topbar">
-        <div class="welcome">Welcome, Tutor!</div>
-        <div class="profile">
-          {/* getting the name of the user logged inn */}
-          <span>{userData.name}</span>
+      <header class="topbar-tutor">
+        <div class="welcome-tutor">
+        <h1>Welcome, {userData.name}!</h1>
+        <p>Let’s make today productive.</p>
         </div>
+      
       </header>
-      <section class="widgets">
-        <div class="widget">
+      <section class="widgets-tutor">
+        <div class="widget-tutor">
           <h3>Total Students</h3>
           <p>120</p>
         </div>
-        <div class="widget">
+        <div class="widget-tutor">
           <h3>Upcoming Classes</h3>
           <p>5</p>
         </div>
-        <div class="widget">
+        <div class="widget-tutor">
           <h3>New Messages</h3>
           <p>8</p>
         </div>
       </section>
-      <section class="content">
-        <div class="content-card">
+      <section class="content-tutor">
+        <div class="content-card-tutor">
           <h3>Upcoming Classes</h3>
           <ul>
             <li>Math - 10:00 AM</li>
@@ -70,12 +104,36 @@ const Dashboard = ()=> {
             <li>English - 2:00 PM</li>
           </ul>
         </div>
-        <div class="content-card">
+        <div class="content-card-tutor">
           <h3>Recent Messages</h3>
           <p>Hi Tutor, I need help with algebra!</p>
           <p>Can we schedule an extra session?</p>
         </div>
       </section>
+
+      {/* Chat Section */}
+      <section className="chat-tutor">
+          <h3>Live Chat</h3>
+          <div className="chat-box">
+            <div className="chat-messages">
+              {messages.map((msg, index) => (
+                <div key={index} className="chat-message">
+                  <strong>{msg.username}</strong>: {msg.message}{' '}
+                  <span className="chat-timestamp">{msg.timestamp}</span>
+                </div>
+              ))}
+            </div>
+            <div className="chat-input">
+              <input
+                type="text"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Type a message..."
+              />
+              <button onClick={handleSendMessage}>Send</button>
+            </div>
+          </div>
+        </section>
     </div>
   </div>
             
