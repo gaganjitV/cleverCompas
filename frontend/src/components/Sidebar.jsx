@@ -24,7 +24,7 @@ const Sidebar = ({ children }) => {
           return;
         }
 
-        const response = await fetch('http://localhost:4000/api/user', {
+        const response = await fetch('https://clevercompas.onrender.com/api/user', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
