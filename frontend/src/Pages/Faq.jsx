@@ -5,6 +5,10 @@ import Sidebar from '../components/Sidebar';
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
+
+  // Check if the user is logged in by verifying the presence of a token
+  const isLoggedIn = !!localStorage.getItem('token');
+
   const toggleItem = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
@@ -61,24 +65,27 @@ const FAQ = () => {
   ];
 
   return (
-    <Sidebar>
-      <div className="faq-page">
-        <h1>Frequently Asked Questions</h1>
-        {faqData.map((item, index) => (
-          <div
-            key={index}
-            className="faq-item"
-            onClick={() => toggleItem(index)}
-            style={{ cursor: 'pointer', marginBottom: '1rem' }}
-          >
-            <h3>{item.question}</h3>
-            {activeIndex === index && (
-              <p style={{ marginTop: '0.5rem', color: '#555' }}>{item.answer}</p>
-            )}
-          </div>
-        ))}
+    <>
+      {isLoggedIn && <Sidebar />}
+      <div className={isLoggedIn ? "faq-page-with-sidebar" : "faq-page"}>
+        <h1 className="faq-title">Frequently Asked Questions</h1>
+        <div className="faq-container">
+          {faqData.map((item, index) => (
+            <div
+              key={index}
+              className={`faq-item ${activeIndex === index ? 'active' : ''}`}
+              onClick={() => toggleItem(index)}
+            >
+              <div className="faq-question">
+                <h3>{item.question}</h3>
+                <span>{activeIndex === index ? '-' : '+'}</span>
+              </div>
+              {activeIndex === index && <p className="faq-answer">{item.answer}</p>}
+            </div>
+          ))}
+        </div>
       </div>
-    </Sidebar>
+    </>
   );
 };
 
