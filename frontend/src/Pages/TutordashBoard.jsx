@@ -109,9 +109,9 @@ const Dashboard = ()=> {
         <div class="content-card-tutor">
           <h3>Upcoming Classes</h3>
           <ul>
-            <li>Math - 10:00 AM</li>
-            <li>Physics - 12:00 PM</li>
-            <li>English - 2:00 PM</li>
+            <li>Math - 10:00 AM - 1 hr(s)</li>
+            <li>Physics - 12:00 PM - 30 min(s)</li>
+            <li>English - 2:00 PM - 2 hr(s)</li>
           </ul>
         </div>
         <div class="content-card-tutor">
