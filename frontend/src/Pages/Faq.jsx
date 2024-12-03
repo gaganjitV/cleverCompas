@@ -66,11 +66,14 @@ const FAQ = () => {
   ];
 
   return (
-    <>
-      {isLoggedIn && <Sidebar />}
-      <div className={isLoggedIn ? "faq-page-with-sidebar" : "faq-page"}>
-        <h1 className="faq-title">Frequently Asked Questions</h1>
-        <div className="faq-container">
+     <div className={`faq-page-container ${isLoggedIn ? 'with-sidebar' : ''}`}>
+      {isLoggedIn && <Sidebar />} {/* Render Sidebar only if logged in */}
+      <div className="faq-page">
+        <header className="faq-header">
+          <h1>Frequently Asked Questions</h1>
+          <p>Find answers to common questions about Clever Compass.</p>
+        </header>
+        <section className="faq-content">
           {faqData.map((item, index) => (
             <div
               key={index}
@@ -84,10 +87,9 @@ const FAQ = () => {
               {activeIndex === index && <p className="faq-answer">{item.answer}</p>}
             </div>
           ))}
-        </div>
+        </section>
       </div>
-    </>
+    </div>
   );
-};
 
 export default FAQ;
