@@ -13,6 +13,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute';
 import SignUp from './Pages/signup';
+import Notification from './Pages/notification';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
              <Route path="/studentDashboard" element={<ProtectedRoute> <StudentDashboard /> </ProtectedRoute> }/>
              <Route path="/Tutordashboard" element={<ProtectedRoute> <TutorDashboard /> </ProtectedRoute> }/>
              <Route path="/Schedule" element={<ProtectedRoute> <Schedule /> </ProtectedRoute> }/>
+                <Route path="/Notification" element={<ProtectedRoute> <Notification /> </ProtectedRoute> }/>
 
 
             </Routes>
