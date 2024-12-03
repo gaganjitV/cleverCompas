@@ -25,12 +25,23 @@ const Home = () => {
   // Fetch images from Pixabay API
   useEffect(() => {
     const apiKey = '47439660-b052a3c4b43cb757c14670dc6'; 
-    fetch(`https://pixabay.com/api/?key=${apiKey}&q=education&image_type=photo&per_page=3`)
-      .then((response) => response.json())
-      .then((data) => {
-        setImages(data.hits);
-      })
-      .catch((error) => console.error('Error fetching images:', error));
+    const fetchImages = () => {
+      fetch(`https://pixabay.com/api/?key=${apiKey}&q=education&image_type=photo&per_page=3`)
+        .then((response) => response.json())
+        .then((data) => {
+          setImages(data.hits);
+        })
+        .catch((error) => console.error('Error fetching images:', error));
+    };
+
+    // Initial fetch
+    fetchImages();
+
+    // Refreshing images every 60 seconds now
+    const interval = setInterval(fetchImages, 60000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
