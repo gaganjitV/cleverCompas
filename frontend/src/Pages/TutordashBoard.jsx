@@ -14,6 +14,7 @@ const Dashboard = ()=> {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]); // Chat messages
   const [message, setMessage] = useState(''); // Current message input
+  const messagesEndRef = useRef(null); // Reference for the messages container
 
 
 
@@ -55,6 +56,11 @@ const Dashboard = ()=> {
       socket.off('receiveMessage', handleReceiveMessage);
     };
   }, []);
+
+  useEffect(() => {
+    // Scroll to the bottom whenever messages update
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   const handleSendMessage = () => {
     if (message.trim()) {
