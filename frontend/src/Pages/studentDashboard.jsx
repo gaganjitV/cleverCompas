@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, userRef } from 'react';
 import '../style/Student.css'
 import Sidebar from '../components/Sidebar'; 
 
@@ -17,6 +17,7 @@ const StudentDashboard = ()=> {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]); // Chat messages
   const [message, setMessage] = useState(''); // Current message input
+  const messagesEndRef = useRef(null);
 
 
   useEffect(() => {
@@ -57,6 +58,11 @@ const StudentDashboard = ()=> {
       socket.off('receiveMessage', handleReceiveMessage);
     };
   }, []);
+
+  // Scroll to the bottom whenever messages update
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   const handleSendMessage = () => {
     if (message.trim()) {
@@ -139,8 +145,8 @@ const StudentDashboard = ()=> {
             </p>
           </div>
         </section>
-          {/* Chat Section */}
-          <section className="chat-student">
+{/* Chat Section */}
+        <section className="chat-student">
           <h3>Live Chat</h3>
           <div className="chat-box">
             <div className="chat-messages">
@@ -150,6 +156,8 @@ const StudentDashboard = ()=> {
                   <span className="chat-timestamp">{msg.timestamp}</span>
                 </div>
               ))}
+              {/* Scroll to this element when new messages arrive */}
+              <div ref={messagesEndRef} />
             </div>
             <div className="chat-input">
               <input
@@ -163,8 +171,6 @@ const StudentDashboard = ()=> {
             </div>
           </div>
         </section>
-
-
       </div>
     </div>
   );
