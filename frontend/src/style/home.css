@@ -1,7 +1,6 @@
 /* General Layout */
 .home {
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
   background-color: #f9f9f9;
 }
@@ -18,12 +17,16 @@
   background-color: #34495e;
   color: #fff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: width 0.3s ease;
   flex-shrink: 0; /* Prevent sidebar from shrinking */
 }
 
-.content {
-  flex: 1; /* Allow main content to fill the remaining space */
+/* Main Content Layout */
+.home-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
   padding: 20px;
   background-color: #f9f9f9;
 }
@@ -35,6 +38,9 @@
   color: #fff;
   padding: 40px 20px;
   border-radius: 10px;
+  width: 100%;
+  max-width: 800px; /* Limit content width */
+  margin-bottom: 30px;
 }
 
 .hero-content h1 {
@@ -73,16 +79,8 @@
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.mission-section h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.mission-section p {
-  font-size: 1rem;
-  color: #555;
+  width: 100%;
+  max-width: 800px; /* Center and constrain content width */
 }
 
 /* Features Section */
@@ -92,6 +90,8 @@
   margin: 20px 0;
   background-color: #f4f4f4;
   border-radius: 10px;
+  width: 100%;
+  max-width: 800px; /* Center and constrain content width */
 }
 
 .features-container {
@@ -99,26 +99,6 @@
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.feature-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  text-align: left;
-}
-
-.feature-card h3 {
-  font-size: 1.3rem;
-  color: #34495e;
-  margin-bottom: 10px;
-}
-
-.feature-card p {
-  font-size: 1rem;
-  color: #555;
 }
 
 /* Image Gallery */
@@ -129,16 +109,8 @@
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.gallery-item {
-  display: inline-block;
-  margin: 10px;
-}
-
-.gallery-item img {
-  max-width: 100%;
-  border-radius: 10px;
+  width: 100%;
+  max-width: 800px; /* Center and constrain content width */
 }
 
 /* Reviews Section */
@@ -147,27 +119,6 @@
   margin: 20px 0;
   background-color: #f4f4f4;
   border-radius: 10px;
-}
-
-.reviews-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.review-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.review-card h3 {
-  font-size: 1.2rem;
-  color: #e67e22;
-}
-
-.review-card p {
-  font-size: 1rem;
-  color: #555;
+  width: 100%;
+  max-width: 800px; /* Center and constrain content width */
 }
