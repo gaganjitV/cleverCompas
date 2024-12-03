@@ -9,6 +9,7 @@
 .home-main-content {
   flex: 1;
   padding: 20px;
+  margin: 0; /* Ensure no unintended margin */
 }
 
 /* Hero Section */
@@ -16,8 +17,8 @@
   text-align: center;
   background-color: #34495e;
   color: #fff;
-  padding: 50px 20px;
-  margin-bottom: 30px;
+  padding: 30px 20px; /* Reduced padding */
+  margin: 0; /* Remove any margin */
   border-radius: 10px;
 }
 
@@ -29,11 +30,12 @@
 .hero p {
   font-size: 1.2rem;
 }
+
 .cta-button-div {
-  margin-top: 40px;
+  margin-top: 20px; /* Reduced space above the button */
 }
+
 .cta-button {
-  margin-top: 40px;
   background-color: #e67e22;
   color: #fff;
   padding: 10px 20px;
@@ -50,8 +52,8 @@
 /* Mission Section */
 .mission-section {
   text-align: center;
-  padding: 30px 20px;
-  margin-bottom: 30px;
+  padding: 20px; /* Reduced padding */
+  margin: 20px 0; /* Balanced spacing */
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -70,12 +72,13 @@
 /* Features Section */
 .features-section {
   text-align: center;
-  padding: 30px 20px;
+  padding: 20px;
+  margin: 20px 0; /* Adjusted margin */
 }
 
 .features-section h2 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .features-container {
@@ -87,10 +90,10 @@
 
 .feature-card {
   background: #fff;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 280px; /* Slightly narrower width */
   text-align: left;
 }
 
@@ -108,25 +111,26 @@
 /* Reviews Section */
 .reviews-section {
   text-align: center;
-  padding: 30px 20px;
+  padding: 20px;
   background-color: #f4f4f4;
   border-radius: 10px;
+  margin: 20px 0; /* Adjusted margin */
 }
 
 .reviews-section h2 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .reviews-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
 .review-card {
   background: #fff;
-  padding: 20px;
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
@@ -150,12 +154,12 @@
 /* Image Gallery */
 .image-gallery {
   text-align: center;
-  margin-bottom: 30px;
+  margin: 20px 0;
 }
 
 .image-gallery h2 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .gallery-item {
