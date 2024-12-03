@@ -19,12 +19,7 @@
   background-color: #f9f9f9;
 }
 
-/* When Sidebar is not present */
-.home:not(.with-sidebar) .home-main-content {
-  margin: 0 auto; /* Center content horizontally */
-  max-width: 800px; /* Constrain content width */
-  text-align: center; /* Center-align text */
-}
+
 
 /* Hero Section */
 .hero {
