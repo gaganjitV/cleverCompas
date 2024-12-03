@@ -14,11 +14,21 @@ const Home = () => {
   ]);
 
   // Fetch images from Unsplash API
+  // useEffect(() => {
+  //   fetch('https://api.unsplash.com/photos/random?query=education&count=3&client_id=yKlHJE6mNFgMWAi_TWX3DpjwDntKUdOWdlvxOKdyMTI')
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setImages(data);
+  //     })
+  //     .catch((error) => console.error('Error fetching images:', error));
+  // }, []);
+  // Fetch images from Pixabay API
   useEffect(() => {
-    fetch('https://api.unsplash.com/photos/random?query=education&count=3&client_id=yKlHJE6mNFgMWAi_TWX3DpjwDntKUdOWdlvxOKdyMTI')
+    const apiKey = '47439660-b052a3c4b43cb757c14670dc6'; 
+    fetch(`https://pixabay.com/api/?key=${apiKey}&q=education&image_type=photo&per_page=3`)
       .then((response) => response.json())
       .then((data) => {
-        setImages(data);
+        setImages(data.hits);
       })
       .catch((error) => console.error('Error fetching images:', error));
   }, []);
@@ -69,7 +79,7 @@ const Home = () => {
           {images.length > 0 ? (
             images.map((image) => (
               <div key={image.id} className="gallery-item">
-                <img src={image.urls.small} alt={image.alt_description} />
+               <img src={image.webformatURL} alt={image.tags} />
               </div>
             ))
           ) : (
