@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../index.css';
-import '../style/FAQ.css';
+
 import Sidebar from '../components/Sidebar';
 
 const FAQ = () => {
