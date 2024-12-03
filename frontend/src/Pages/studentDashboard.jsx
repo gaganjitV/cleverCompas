@@ -122,9 +122,9 @@ const StudentDashboard = ()=> {
               <i className="fas fa-chalkboard-teacher"></i> Upcoming Classes
             </h3>
             <ul>
-              <li>Math - 10:00 AM</li>
-              <li>Physics - 12:00 PM</li>
-              <li>English - 2:00 PM</li>
+              <li>Math - 10:00 AM - 1 hr(s)</li>
+              <li>Physics - 12:00 PM - 30 min(s)</li>
+              <li>English - 2:00 PM - 2 hr(s)</li>
             </ul>
           </div>
           <div className="content-card-student">
