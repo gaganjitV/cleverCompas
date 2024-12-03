@@ -33,7 +33,7 @@ dotenv 10.x
 Contributing
 Developers:
 
-Gaganjit Singh Virdi, Cristobel Navarro-Miranda, ...
+Gaganjit Singh Virdi, Cristobel Navarro-Miranda, Jack Turner, Mohammad Sumair, Vatsal Maniyar, Faizan Tariq, Rian Smith, Sila Can
 
 0000000000000000000000000000000000000000000000000000000
  
