@@ -162,5 +162,5 @@ This project is licensed under the MIT License. Refer to the LICENSE file in the
 We welcome contributions from the community!
 
 ## Developers
-Gaganjit Singh Virdi, Cristobel Navarro-Miranda, Faizan Tariq, ...
+Gaganjit Singh Virdi, Cristobel Navarro-Miranda, Jack Turner, Mohammad Sumair, Vatsal Maniyar, Faizan Tariq, Rian Smith, Sila Can
 
