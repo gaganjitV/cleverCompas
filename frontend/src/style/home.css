@@ -12,6 +12,12 @@
   margin: 0; /* Ensure no unintended margin */
 }
 
+.with-sidebar .about-page-container {
+  display: flex;
+  flex: 1;
+  margin: 0; /* Reset margin to avoid unnecessary space */
+}
+
 /* Hero Section */
 .hero {
   text-align: center;
