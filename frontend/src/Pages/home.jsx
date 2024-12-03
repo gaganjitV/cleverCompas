@@ -24,17 +24,48 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={`home ${isLoggedIn ? 'with-sidebar' : ''}`}>
+   <div className={`home ${isLoggedIn ? 'with-sidebar' : ''}`}>
       {isLoggedIn && <Sidebar />} {/* Render Sidebar only if logged in */}
       <div className="home-main-content">
         <header className="hero">
           <div className="hero-content">
             <h1>Welcome to Clever Compass</h1>
-            <p>Empower your learning journey with modern tools and resources.</p>
-            {!isLoggedIn && <Link to="/login" className="cta-button">Get Started</Link>} {/* Render the get started bytton only if logged in */}
+            <p>Your ultimate solution for connecting students and tutors seamlessly.</p>
+            {!isLoggedIn && <Link to="/login" className="cta-button">Get Started</Link>} {/* Render the get started button only if logged out */}
           </div>
         </header>
+
+        {/* Mission Section */}
+        <section className="mission-section">
+          <h2>Our Mission</h2>
+          <p>
+            At Clever Compass, our mission is to empower students, tutors, and professionals by providing a comprehensive 
+            platform that simplifies the process of learning, teaching, and managing schedules effectively.
+          </p>
+        </section>
+
+        {/* Features Section */}
+        <section className="features-section">
+          <h2>Why Choose Clever Compass?</h2>
+          <div className="features-container">
+            <div className="feature-card">
+              <h3>Personalized Dashboards</h3>
+              <p>Custom dashboards tailored for students and tutors to manage everything in one place.</p>
+            </div>
+            <div className="feature-card">
+              <h3>Live Chat</h3>
+              <p>Seamless communication between tutors and students for effective learning.</p>
+            </div>
+            <div className="feature-card">
+              <h3>Efficient Scheduling</h3>
+              <p>Plan and track tutoring sessions easily with our integrated calendar system.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Image Gallery */}
         <section className="image-gallery">
+          <h2>Explore Learning in Action</h2>
           {images.length > 0 ? (
             images.map((image) => (
               <div key={image.id} className="gallery-item">
@@ -42,9 +73,11 @@ const Home = () => {
               </div>
             ))
           ) : (
-            <p>Loading images... to many requests</p>
+            <p>Loading images... too many requests</p>
           )}
         </section>
+
+        {/* Reviews Section */}
         <section className="reviews-section">
           <h2>What People Are Saying</h2>
           <div className="reviews-container">
