@@ -38,11 +38,6 @@ const Home = () => {
     // Initial fetch
     fetchImages();
 
-    // Refreshing images every 60 seconds now
-    const interval = setInterval(fetchImages, 60000);
-
-    // Cleanup interval on component unmount
-    return () => clearInterval(interval);
   }, []);
 
   return (
