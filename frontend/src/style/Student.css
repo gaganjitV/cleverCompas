@@ -151,8 +151,8 @@
 }
 
 .chat-box {
-  max-height: 300px; /* Adjust height as needed */
-  overflow-y: auto; /* Add vertical scrolling */
+  max-height: 300px; /* Set a max height for the chat container */
+  overflow-y: auto; /* Allow vertical scrolling */
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -162,7 +162,7 @@
 .chat-messages {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space between messages */
+  gap: 10px; /* Add spacing between messages */
 }
 
 .chat-message {
