@@ -24,32 +24,28 @@ const Home = () => {
   }, []);
 
   return (
-   <div className={`home ${isLoggedIn ? 'with-sidebar' : ''}`}>
+    <div className={`home ${isLoggedIn ? 'with-sidebar' : ''}`}>
       {isLoggedIn && <Sidebar />} {/* Render Sidebar only if logged in */}
       <div className="home-main-content">
         <header className="hero">
           <div className="hero-content">
             <h1>Welcome to Clever Compass</h1>
-            
             <p>Your ultimate solution for connecting students and tutors seamlessly.</p>
-
-            <div className="cta-button-div"> 
-            
-                    {!isLoggedIn && <Link to="/login" className="cta-button">Get Started</Link>} {/* Render the get started button only if logged out */}
-            </div>
+            {!isLoggedIn && (
+              <div className="cta-button-div">
+                <Link to="/login" className="cta-button">Get Started</Link>
+              </div>
+            )}
           </div>
         </header>
 
-        {/* Mission Section */}
         <section className="mission-section">
           <h2>Our Mission</h2>
           <p>
-            At Clever Compass, our mission is to empower students, tutors, and professionals by providing a comprehensive 
-            platform that simplifies the process of learning, teaching, and managing schedules effectively.
+            At Clever Compass, we aim to empower students, tutors, and professionals by simplifying the process of learning, teaching, and managing schedules effectively.
           </p>
         </section>
 
-        {/* Features Section */}
         <section className="features-section">
           <h2>Why Choose Clever Compass?</h2>
           <div className="features-container">
@@ -68,7 +64,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Image Gallery */}
         <section className="image-gallery">
           <h2>Explore Learning in Action</h2>
           {images.length > 0 ? (
@@ -78,11 +73,10 @@ const Home = () => {
               </div>
             ))
           ) : (
-            <p>Loading images... too many requests</p>
+            <p>Loading images... Please try again later</p>
           )}
         </section>
 
-        {/* Reviews Section */}
         <section className="reviews-section">
           <h2>What People Are Saying</h2>
           <div className="reviews-container">
