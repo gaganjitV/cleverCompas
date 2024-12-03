@@ -28,9 +28,9 @@ const Home = () => {
     const fetchImages = () => {
       const randomPage = Math.floor(Math.random() * 10) + 1; // Randomize page number
       fetch(`https://pixabay.com/api/?key=${apiKey}&q=education&image_type=photo&per_page=3&page=${randomPage}`)
-        .then((response) => response.json())
+        .then((response) => response.json())  // Converts the response from JSON format
         .then((data) => {
-          setImages(data.hits);
+          setImages(data.hits); // Stores the image data in the state
         })
         .catch((error) => console.error('Error fetching images:', error));
     };
