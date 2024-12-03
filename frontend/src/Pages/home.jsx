@@ -26,7 +26,8 @@ const Home = () => {
   useEffect(() => {
     const apiKey = '47439660-b052a3c4b43cb757c14670dc6'; 
     const fetchImages = () => {
-      fetch(`https://pixabay.com/api/?key=${apiKey}&q=education&image_type=photo&per_page=3`)
+      const randomPage = Math.floor(Math.random() * 10) + 1; // Randomize page number
+      fetch(`https://pixabay.com/api/?key=${apiKey}&q=education&image_type=photo&per_page=3&page=${randomPage}`)
         .then((response) => response.json())
         .then((data) => {
           setImages(data.hits);
