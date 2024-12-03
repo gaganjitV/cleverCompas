@@ -6,16 +6,26 @@
   background-color: #f9f9f9;
 }
 
-.home-main-content {
-  flex: 1;
-  padding: 20px;
-  margin: 0; /* Ensure no unintended margin */
+.home.with-sidebar {
+  display: flex;
+  flex-direction: row; /* Align sidebar and main content horizontally */
 }
 
-.with-sidebar .home-main-content {
-  display: flex;
-  flex: 1;
-  margin: 0; /* Reset margin to avoid unnecessary space */
+/* Sidebar Layout */
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background-color: #34495e;
+  color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+.content {
+  flex: 1; /* Allow main content to fill the remaining space */
+  padding: 20px;
+  background-color: #f9f9f9;
 }
 
 /* Hero Section */
@@ -23,22 +33,22 @@
   text-align: center;
   background-color: #34495e;
   color: #fff;
-  padding: 30px 20px; /* Reduced padding */
-  margin: 0; /* Remove any margin */
+  padding: 40px 20px;
   border-radius: 10px;
 }
 
-.hero h1 {
+.hero-content h1 {
   font-size: 2.5rem;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-.hero p {
+.hero-content p {
   font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 
 .cta-button-div {
-  margin-top: 20px; /* Reduced space above the button */
+  margin-top: 20px;
 }
 
 .cta-button {
@@ -57,11 +67,11 @@
 
 /* Mission Section */
 .mission-section {
-  text-align: center;
-  padding: 20px; /* Reduced padding */
-  margin: 20px 0; /* Balanced spacing */
+  padding: 30px;
+  margin: 20px 0;
   background-color: #fff;
   border-radius: 10px;
+  text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -77,14 +87,11 @@
 
 /* Features Section */
 .features-section {
+  padding: 30px;
   text-align: center;
-  padding: 20px;
-  margin: 20px 0; /* Adjusted margin */
-}
-
-.features-section h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
+  margin: 20px 0;
+  background-color: #f4f4f4;
+  border-radius: 10px;
 }
 
 .features-container {
@@ -96,10 +103,10 @@
 
 .feature-card {
   background: #fff;
-  padding: 15px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 280px; /* Slightly narrower width */
+  width: 300px;
   text-align: left;
 }
 
@@ -114,58 +121,14 @@
   color: #555;
 }
 
-/* Reviews Section */
-.reviews-section {
-  text-align: center;
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  margin: 20px 0; /* Adjusted margin */
-}
-
-.reviews-section h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.reviews-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.review-card {
-  background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: left;
-}
-
-.review-card h3 {
-  font-size: 1.2rem;
-  color: #e67e22;
-}
-
-.review-card h3 span {
-  font-size: 0.9rem;
-  color: #777;
-}
-
-.review-card p {
-  font-size: 1rem;
-  color: #555;
-}
-
 /* Image Gallery */
 .image-gallery {
+  padding: 30px;
   text-align: center;
-  margin: 20px 0;
-}
-
-.image-gallery h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .gallery-item {
@@ -176,4 +139,35 @@
 .gallery-item img {
   max-width: 100%;
   border-radius: 10px;
+}
+
+/* Reviews Section */
+.reviews-section {
+  padding: 30px;
+  margin: 20px 0;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.review-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-card h3 {
+  font-size: 1.2rem;
+  color: #e67e22;
+}
+
+.review-card p {
+  font-size: 1rem;
+  color: #555;
 }
