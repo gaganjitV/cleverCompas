@@ -133,6 +133,9 @@ const Dashboard = ()=> {
                 </div>
               ))}
             </div>
+   {/* Scroll to this element when new messages arrive */}
+              <div ref={messagesEndRef} />
+            </div>
             <div className="chat-input">
               <input
                 type="text"
@@ -145,8 +148,8 @@ const Dashboard = ()=> {
             </div>
           </div>
         </section>
+      </div>
     </div>
-  </div>
             
            
         );
