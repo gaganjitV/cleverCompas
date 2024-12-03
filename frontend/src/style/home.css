@@ -5,56 +5,46 @@
   background-color: #f9f9f9;
 }
 
-.home.with-sidebar {
-  flex-direction: row; /* Sidebar and content aligned horizontally */
-}
-
 .home-main-content {
   flex: 1;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers content vertically */
-  align-items: center; /* Centers content horizontally */
-  padding: 20px;
-  background-color: #f9f9f9;
+  align-items: center;
 }
-
-
 
 /* Hero Section */
 .hero {
   text-align: center;
-  background-color: #34495e;
+  background: linear-gradient(135deg, #34495e, #2c3e50);
   color: #fff;
-  padding: 40px 20px;
-  border-radius: 10px;
+  padding: 60px 20px;
+  border-radius: 12px;
   width: 100%;
-  max-width: 800px; /* Limit width for consistency */
-  margin-bottom: 30px;
+  max-width: 900px;
+  margin-bottom: 40px;
 }
 
-.hero-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
+.hero h1 {
+  font-size: 2.8rem;
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
-.cta-button-div {
-  margin-top: 20px;
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
 }
 
 .cta-button {
   background-color: #e67e22;
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: all 0.3s;
 }
 
 .cta-button:hover {
@@ -63,52 +53,117 @@
 
 /* Mission Section */
 .mission-section {
-  padding: 30px;
-  margin: 20px 0;
-  background-color: #fff;
-  border-radius: 10px;
   text-align: center;
+  background: #fff;
+  padding: 40px 20px;
+  border-radius: 12px;
+  margin-bottom: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 800px; /* Center and constrain content width */
+  max-width: 900px;
+}
+
+.mission-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.mission-section p {
+  font-size: 1.1rem;
+  color: #555;
 }
 
 /* Features Section */
 .features-section {
-  padding: 30px;
   text-align: center;
-  margin: 20px 0;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 800px; /* Center and constrain content width */
+  background: #f4f4f4;
+  padding: 40px 20px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  max-width: 900px;
 }
 
 .features-container {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
 }
 
-/* Image Gallery */
-.image-gallery {
-  padding: 30px;
-  text-align: center;
-  background-color: #fff;
-  margin-bottom: 20px;
+.feature-card {
+  background: #fff;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 800px; /* Center and constrain content width */
+  width: 280px;
+  text-align: center;
+}
+
+.feature-card h3 {
+  font-size: 1.4rem;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #555;
 }
 
 /* Reviews Section */
 .reviews-section {
-  padding: 30px;
-  margin: 20px 0;
-  background-color: #f4f4f4;
+  text-align: center;
+  background: #fff;
+  padding: 40px 20px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  max-width: 900px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.review-card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.review-card h3 {
+  font-size: 1.2rem;
+  color: #e67e22;
+}
+
+.review-card h3 span {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.review-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Image Gallery */
+.image-gallery {
+  text-align: center;
+  max-width: 900px;
+  margin-bottom: 40px;
+}
+
+.image-gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.gallery-item img {
+  max-width: 100%;
   border-radius: 10px;
-  width: 100%;
-  max-width: 800px; /* Center and constrain content width */
+  margin-bottom: 10px;
 }
