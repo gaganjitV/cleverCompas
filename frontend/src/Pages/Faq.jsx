@@ -91,5 +91,7 @@ const FAQ = () => {
       </div>
     </div>
   );
+};
+
 
 export default FAQ;
