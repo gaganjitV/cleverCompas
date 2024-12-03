@@ -60,3 +60,48 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+reviews-section {
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.reviews-section h2 {
+  font-size: 2rem;
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.review-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  max-width: 300px;
+}
+
+.review-card h3 {
+  font-size: 1.2rem;
+  color: #e67e22;
+  margin-bottom: 10px;
+}
+
+.review-card h3 span {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.review-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
