@@ -12,7 +12,7 @@
   margin: 0; /* Ensure no unintended margin */
 }
 
-.with-sidebar .about-page {
+.with-sidebar .home-main-content {
   display: flex;
   flex: 1;
   margin: 0; /* Reset margin to avoid unnecessary space */
