@@ -30,8 +30,13 @@ const Home = () => {
         <header className="hero">
           <div className="hero-content">
             <h1>Welcome to Clever Compass</h1>
+            
             <p>Your ultimate solution for connecting students and tutors seamlessly.</p>
-            {!isLoggedIn && <Link to="/login" className="cta-button">Get Started</Link>} {/* Render the get started button only if logged out */}
+
+            <div className="cta-button-div"> 
+            
+                    {!isLoggedIn && <Link to="/login" className="cta-button">Get Started</Link>} {/* Render the get started button only if logged out */}
+            </div>
           </div>
         </header>
 
