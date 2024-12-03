@@ -20,7 +20,7 @@ const Contact = () => {
           <p>The Clever Compass team is a group of dedicated individuals passionate about enhancing the tutoring experience:</p>
           <div className="team-members">
             <ul>
-              <li>Christobel Navarro-Miranda</li>
+              <li>Cristobel Navarro-Miranda</li>
               <li>Mohammad Sumair</li>
               <li>Vatsal Maniyar</li>
               <li>Faizan Tariq</li>
