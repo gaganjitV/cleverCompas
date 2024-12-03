@@ -121,8 +121,8 @@ const Dashboard = ()=> {
         </div>
       </section>
 
-      {/* Chat Section */}
-      <section className="chat-tutor">
+{/* Chat Section */}
+        <section className="chat-tutor">
           <h3>Live Chat</h3>
           <div className="chat-box">
             <div className="chat-messages">
@@ -132,8 +132,7 @@ const Dashboard = ()=> {
                   <span className="chat-timestamp">{msg.timestamp}</span>
                 </div>
               ))}
-            </div>
-   {/* Scroll to this element when new messages arrive */}
+              {/* Scroll to this element when new messages arrive */}
               <div ref={messagesEndRef} />
             </div>
             <div className="chat-input">
@@ -150,10 +149,7 @@ const Dashboard = ()=> {
         </section>
       </div>
     </div>
-            
-           
-        );
-
+  );
 };
 
 export default Dashboard;
