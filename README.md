@@ -35,7 +35,7 @@ Developers:
 
 Gaganjit Singh Virdi, Cristobel Navarro-Miranda, Jack Turner, Mohammad Sumair, Vatsal Maniyar, Faizan Tariq, Rian Smith, Sila Can
 
-0000000000000000000000000000000000000000000000000000000
+
  
 # Clever Compass - Full-Stack Tutoring Platform  
 Seamless tutoring platform enabling efficient session management, progress tracking, and communication for students and tutors.
