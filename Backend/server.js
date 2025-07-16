@@ -20,10 +20,7 @@ app.use(bodyParser.json()); // Parse JSON request bodies
 // Database Connection
 const DB_URI = process.env.MONGO_URI;
 mongoose
-    .connect(DB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+    .connect(DB_URI)
   .then(() => console.log('✅ Connected to MongoDB'))
   .catch((err) => console.error('❌ MongoDB connection error:', err));
 
