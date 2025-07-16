@@ -8,7 +8,7 @@ SO THAT students and tutors can efficiently manage sessions, track progress, and
 Description
 This project involves developing the backend for the Crypto Knights tutoring website using Express.js and Mongoose to interact with a MongoDB database. The backend functionality supports retrieving, creating, updating, and deleting user profiles, session schedules, and progress reports, ensuring a smooth user experience for both tutors and students.
 
-Video Demo of Operations: Coming Soon!
+Demo of Operations: [(https://clevercompas-frontend.onrender.com/)
 What I Learned
 I deepened my understanding of backend API methods like GET, POST, PUT, and DELETE and how they interact with databases to handle dynamic user and session data.
 
