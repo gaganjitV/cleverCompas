@@ -20,9 +20,12 @@ app.use(bodyParser.json()); // Parse JSON request bodies
 // Database Connection
 const DB_URI = process.env.MONGO_URI;
 mongoose
-    .connect(DB_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch((err) => console.error('MongoDB connection error:', err));
+    .connect(DB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('✅ Connected to MongoDB'))
+  .catch((err) => console.error('❌ MongoDB connection error:', err));
 
 // Routes
 app.use('/api', authRoutes); // Authentication routes
